@@ -29,7 +29,6 @@ spec:
         persistence:
             media:
                 enabled: true
-                mountPath: /media
-                accessMode: ReadWriteMany
+                existingClaimName: jellyfin-pvc
 
 {{- end }}
