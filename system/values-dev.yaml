@@ -1,7 +1,7 @@
 # Default
 argocd:
- project: system
- namespace: argocd
+  project: system
+  namespace: argocd
 
 global:
   domain: "placeholder.com"
@@ -36,7 +36,7 @@ opentelemetry:
 
 # Ingress / Load balancer
 metallb:
-  enabled: false
+  enabled: true
   namespace: metallb-system
 
 ingress_nginx:
