@@ -30,5 +30,6 @@ spec:
             media:
                 enabled: true
                 mountPath: /media
+                accessMode: ReadWriteMany
 
 {{- end }}
