@@ -36,7 +36,7 @@ opentelemetry:
 
 # Ingress / Load balancer
 metallb:
-  enabled: true
+  enabled: false
   namespace: metallb-system
 
 ingress_nginx:
