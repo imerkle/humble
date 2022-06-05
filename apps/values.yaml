@@ -15,7 +15,6 @@ dendrite:
 element:
   enabled: true
 
-
 # Playground services
 memcached:
   enabled: false
@@ -39,4 +38,8 @@ nfs:
   enabled: false
 
 yutaops:
+  enabled: true
+
+# netflix
+jellyfin:
   enabled: true
