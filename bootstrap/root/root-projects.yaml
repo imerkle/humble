@@ -6,14 +6,16 @@ metadata:
 spec:
   description: root project
   clusterResourceWhitelist:
-  - group: '*'
-    kind: '*'
+    - group: "*"
+      kind: "*"
   destinations:
-  - namespace: '*'
-    server: '*'
+    - namespace: "*"
+      server: "*"
   sourceRepos:
-  - git@github.com:locmai/**
-  - https://github.com/locmai/**
+    - git@github.com:locmai/**
+    - https://github.com/locmai/**
+    - https://github.com/imerkle/**
+    - git@github.com:imerkle/**
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
@@ -25,13 +27,13 @@ metadata:
 spec:
   description: apps project
   clusterResourceWhitelist:
-  - group: '*'
-    kind: '*'
+    - group: "*"
+      kind: "*"
   destinations:
-  - namespace: '*'
-    server: '*'
+    - namespace: "*"
+      server: "*"
   sourceRepos:
-  - '*'
+    - "*"
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
@@ -41,13 +43,13 @@ metadata:
 spec:
   description: bootstrap project
   clusterResourceWhitelist:
-  - group: '*'
-    kind: '*'
+    - group: "*"
+      kind: "*"
   destinations:
-  - namespace: '*'
-    server: '*'
+    - namespace: "*"
+      server: "*"
   sourceRepos:
-  - '*'
+    - "*"
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
@@ -57,13 +59,13 @@ metadata:
 spec:
   description: global project
   clusterResourceWhitelist:
-  - group: '*'
-    kind: '*'
+    - group: "*"
+      kind: "*"
   destinations:
-  - namespace: '*'
-    server: '*'
+    - namespace: "*"
+      server: "*"
   sourceRepos:
-  - '*'
+    - "*"
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
@@ -75,13 +77,13 @@ metadata:
 spec:
   description: platform project
   clusterResourceWhitelist:
-  - group: '*'
-    kind: '*'
+    - group: "*"
+      kind: "*"
   destinations:
-  - namespace: '*'
-    server: '*'
+    - namespace: "*"
+      server: "*"
   sourceRepos:
-  - '*'
+    - "*"
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
@@ -91,10 +93,10 @@ metadata:
 spec:
   description: system project
   clusterResourceWhitelist:
-  - group: '*'
-    kind: '*'
+    - group: "*"
+      kind: "*"
   destinations:
-  - namespace: '*'
-    server: '*'
+    - namespace: "*"
+      server: "*"
   sourceRepos:
-  - '*'
+    - "*"
