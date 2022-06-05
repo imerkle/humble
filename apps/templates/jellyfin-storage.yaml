@@ -3,7 +3,7 @@ apiVersion: v1
 kind: PersistentVolume
 metadata:
   name: jellyfin-pv
-  namespace: jellyfin
+  namespace: apps
 spec:
   storageClassName: manual
   capacity:
@@ -11,13 +11,13 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: "/media"
+    path: "/"
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: jellyfin-pvc
-  namespace: jellyfin
+  namespace: apps
 spec:
   storageClassName: manual
   volumeName: jellyfin-pv
