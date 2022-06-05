@@ -12,7 +12,7 @@ vault:
   namespace: platform
   init:
     enabled: true
-  storageClass:  "local-path"
+  storageClass: "local-path"
 
 externalSecrets:
   enabled: true
@@ -46,7 +46,7 @@ argo_events:
 authentik:
   enabled: false
   namespace: platform
-  init: 
+  init:
     enabled: false
 
 # SCM
@@ -68,4 +68,9 @@ trow:
 # Mimir
 mimir:
   enabled: false
+  namespace: platform
+
+# netflix
+jellyfin:
+  enabled: true
   namespace: platform
