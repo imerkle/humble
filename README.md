@@ -1,6 +1,10 @@
 # Humble Project
 
 
+
+sudo modprobe iptable_nat
+sudo modprobe iptable_filter
+
 [![chat](https://img.shields.io/matrix/home:dendrite.maibaloc.com?style=flat-square&logo=matrix&logoColor=white&label=chat)](https://matrix.to/#/#home:dendrite.maibaloc.com)
 ![stability-wip](https://img.shields.io/badge/stability-work_in_progress-lightgrey.svg?style=flat-square)
 [![doc](https://img.shields.io/website?label=doc&logo=gitbook&logoColor=white&style=flat-square&url=https%3A%2F%2Fhumble.maibaloc.com)](https://humble.maibaloc.com)

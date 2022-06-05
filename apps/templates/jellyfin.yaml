@@ -20,7 +20,7 @@ spec:
     name: in-cluster
     namespace: {{ .Values.jellyfin.namespace }}
   source:
-    chart: k8s-at-home/jellyfin
+    chart: jellyfin
     repoURL: https://k8s-at-home.com/charts/
     targetRevision: 9.4.2
     helm:
