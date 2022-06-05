@@ -22,11 +22,19 @@ spec:
   source:
     chart: ingress-nginx
     repoURL: https://kubernetes.github.io/ingress-nginx
-    targetRevision: 4.0.18
+    targetRevision: 4.1.1
     helm:
       releaseName: {{ .Values.argocd.project }}-ingress-nginx
       values: |
         controller:
+          service:
+            annotations:
+              metallb.universe.tf/address-pool: default
+          ingressClassResource:
+            name: nginx
+            enabled: true
+            default: true
+            controllerValue: "k8s.io/ingress-nginx"
           metrics:
             enabled: true
             serviceMonitor:
