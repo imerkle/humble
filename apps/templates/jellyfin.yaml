@@ -28,7 +28,7 @@ spec:
       values: |
         persistence:
           media:
-              enabled: true
-              existingClaimName: jellyfin-pvc
+            enabled: true
+            existingClaimName: jellyfin-pvc
 
 {{- end }}
