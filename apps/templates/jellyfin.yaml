@@ -29,5 +29,7 @@ spec:
         persistence:
           media:
             enabled: true
+            accessMode: ReadWriteOnce
+            size: 5Gi
             existingClaimName: jellyfin-pvc
 {{- end }}
