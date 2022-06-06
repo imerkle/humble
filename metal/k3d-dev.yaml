@@ -15,3 +15,5 @@ options:
         nodeFilters:
           - server:*
 subnet: 172.28.0.0/16
+volumes: # repeatable flags are represented as YAML lists
+  - volume: /media:/home/slim/homelab/media
