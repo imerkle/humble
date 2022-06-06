@@ -18,7 +18,7 @@ spec:
       - CreateNamespace=true
   destination:
     name: in-cluster
-    namespace: {{ .Values.jellyfin.namespace }}
+    namespace: {{ .Values.argocd.namespace }}
   source:
     chart: jellyfin
     repoURL: https://k8s-at-home.com/charts/
