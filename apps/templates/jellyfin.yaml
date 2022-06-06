@@ -25,10 +25,4 @@ spec:
     targetRevision: 9.4.2
     helm:
       releaseName: jellyfin
-      values: |
-        persistence:
-          media:
-            enabled: true
-            existingClaimName: jellyfin-pvc
-
 {{- end }}
