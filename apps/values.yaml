@@ -43,3 +43,7 @@ yutaops:
 # netflix
 jellyfin:
   enabled: true
+radarr:
+  enabled: true
+sonarr:
+  enabled: true
