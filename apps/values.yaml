@@ -41,9 +41,15 @@ yutaops:
   enabled: true
 
 # netflix
+mediastorage:
+  size: "5Gi"
 jellyfin:
   enabled: true
 radarr:
   enabled: true
 sonarr:
+  enabled: true
+prowlarr:
+  enabled: true
+bazarr:
   enabled: true

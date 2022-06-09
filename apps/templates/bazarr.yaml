@@ -1,0 +1,53 @@
+{{- if .Values.bazarr.enabled }}
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: {{ .Values.argocd.project }}-bazarr
+  namespace: {{ .Values.argocd.namespace }}
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: {{ .Values.argocd.project }}
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+    syncOptions:
+      - CreateNamespace=true
+  destination:
+    name: in-cluster
+    namespace: {{ .Values.argocd.project }}
+  source:
+    chart: bazarr
+    repoURL: https://k8s-at-home.com/charts/
+    targetRevision: 10.5.2
+    helm:
+      releaseName: bazarr
+      values: |
+        persistence:
+          config:
+            enabled: true
+          media:
+            enabled: true
+            existingClaim: bazarr-media-pvc
+        ingress:
+          main:
+            enabled: true
+            ingressClassName: nginx
+            annotations:
+              cert-manager.io/cluster-issuer: letsencrypt-prod
+              external-dns.alpha.kubernetes.io/target: "humble-tunnel.{{ .Values.global.domain }}"
+              external-dns.alpha.kubernetes.io/cloudflare-proxied: "true"
+              nginx.ingress.kubernetes.io/proxy-body-size: 32m
+            hosts:
+              - host: &host bazarr.{{ .Values.global.domain }}
+                paths:
+                  - path: /
+                    pathType: Prefix
+            tls:
+              - secretName: bazarr-tls-certificate
+                hosts:
+                  - *host            
+{{- end }}
