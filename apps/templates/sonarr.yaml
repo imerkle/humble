@@ -1,8 +1,8 @@
-{{- if .Values.jellyfin.enabled }}
+{{- if .Values.sonarr.enabled }}
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: {{ .Values.argocd.project }}-jellyfin
+  name: {{ .Values.argocd.project }}-sonarr
   namespace: {{ .Values.argocd.namespace }}
   annotations:
     argocd.argoproj.io/sync-wave: "2"
@@ -20,16 +20,16 @@ spec:
     name: in-cluster
     namespace: {{ .Values.argocd.project }}
   source:
-    chart: jellyfin
+    chart: sonarr
     repoURL: https://k8s-at-home.com/charts/
-    targetRevision: 9.4.2
+    targetRevision: 16.2.3
     helm:
-      releaseName: jellyfin
+      releaseName: sonarr
       values: |
         persistence:
           media:
             enabled: true
-            existingClaim: jellyfin-media-pvc
+            existingClaim: sonarr-media-pvc
         ingress:
           main:
             enabled: true
@@ -40,12 +40,12 @@ spec:
               external-dns.alpha.kubernetes.io/cloudflare-proxied: "true"
               nginx.ingress.kubernetes.io/proxy-body-size: 32m
             hosts:
-              - host: &host jellyfin.{{ .Values.global.domain }}
+              - host: &host sonarr.{{ .Values.global.domain }}
                 paths:
                   - path: /
                     pathType: Prefix
             tls:
-              - secretName: jellyfin-tls-certificate
+              - secretName: sonarr-tls-certificate
                 hosts:
                   - *host            
 {{- end }}
