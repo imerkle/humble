@@ -27,6 +27,8 @@ spec:
       releaseName: radarr
       values: |
         persistence:
+          config:
+            enabled: true        
           media:
             enabled: true
             existingClaim: radarr-media-pvc
