@@ -10,12 +10,12 @@ filebrowser:
   enabled: false
 
 dendrite:
-  enabled: false
+  enabled: true
   storageClass: "local-path"
   autosign: true
 
 element:
-  enabled: false
+  enabled: true
 
 # Playground services
 memcached:
@@ -50,4 +50,8 @@ jellyfin:
 radarr:
   enabled: true
 sonarr:
+  enabled: true
+prowlarr:
+  enabled: true
+bazarr:
   enabled: true
