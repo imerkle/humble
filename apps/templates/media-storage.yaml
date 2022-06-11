@@ -119,3 +119,62 @@ spec:
       storage: {{.Values.mediastorage.size }}
 ---
 {{- end }}
+{{- if .Values.qbittorent.enabled }}
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: qbittorrent-media-pv
+  namespace: apps
+spec:
+  storageClassName: manual
+  capacity:
+    storage: {{.Values.mediastorage.size }}
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/homelab/media"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: qbittorrent-media-pvc
+  namespace: apps
+spec:
+  storageClassName: manual
+  volumeName: qbittorrent-media-pv
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: {{.Values.mediastorage.size }}
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: qbittorrent-downloads-pv
+  namespace: apps
+spec:
+  storageClassName: manual
+  capacity:
+    storage: {{.Values.mediastorage.size }}
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/homelab/downloads"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: qbittorrent-downloads-pvc
+  namespace: apps
+spec:
+  storageClassName: manual
+  volumeName: qbittorrent-downloads-pv
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: {{.Values.mediastorage.size }}
+---
+{{- end }}

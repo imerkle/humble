@@ -53,3 +53,5 @@ prowlarr:
   enabled: true
 bazarr:
   enabled: true
+qbittorrent:
+  enabled: true

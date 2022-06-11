@@ -1,8 +1,8 @@
-{{- if .Values.sonarr.enabled }}
+{{- if .Values.qbittorrent.enabled }}
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: {{ .Values.argocd.project }}-sonarr
+  name: {{ .Values.argocd.project }}-qbittorrent
   namespace: {{ .Values.argocd.namespace }}
   annotations:
     argocd.argoproj.io/sync-wave: "2"
@@ -20,18 +20,21 @@ spec:
     name: in-cluster
     namespace: {{ .Values.argocd.project }}
   source:
-    chart: sonarr
+    chart: qbittorrent
     repoURL: https://k8s-at-home.com/charts/
     targetRevision: 16.2.3
     helm:
-      releaseName: sonarr
+      releaseName: qbittorrent
       values: |
         persistence:
           config:
-            enabled: true
+            enabled: true        
           media:
             enabled: true
-            existingClaim: sonarr-media-pvc
+            existingClaim: qbittorrent-media-pvc
+          downloads:
+            enabled: true
+            existingClaim: qbittorrent-downloads-pvc
         ingress:
           main:
             enabled: true
@@ -42,12 +45,12 @@ spec:
               external-dns.alpha.kubernetes.io/cloudflare-proxied: "true"
               nginx.ingress.kubernetes.io/proxy-body-size: 32m
             hosts:
-              - host: &host sonarr.{{ .Values.global.domain }}
+              - host: &host qbittorrent.{{ .Values.global.domain }}
                 paths:
                   - path: /
                     pathType: Prefix
             tls:
-              - secretName: sonarr-tls-certificate
+              - secretName: qbittorrent-tls-certificate
                 hosts:
                   - *host            
 {{- end }}
