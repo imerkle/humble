@@ -119,7 +119,7 @@ spec:
       storage: {{.Values.mediastorage.size }}
 ---
 {{- end }}
-{{- if .Values.qbittorent.enabled }}
+{{- if .Values.qbittorrent.enabled }}
 ---
 apiVersion: v1
 kind: PersistentVolume
