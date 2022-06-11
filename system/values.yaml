@@ -1,7 +1,7 @@
 # Default
 argocd:
- project: system
- namespace: argocd
+  project: system
+  namespace: argocd
 
 global:
   domain: "placeholder.com"
@@ -66,3 +66,8 @@ systemUpgrade:
 
 kured:
   enabled: false
+
+#backup
+k8up:
+  enabled: true
+  namespace: k8up

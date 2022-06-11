@@ -1,0 +1,36 @@
+{{- if .Values.k8up.enabled }}
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: {{ .Values.argocd.project }}-k8up
+  namespace: {{ .Values.argocd.namespace }}
+  annotations:
+    argocd.argoproj.io/sync-wave: "0"
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: {{ .Values.argocd.project }}
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+    syncOptions:
+      - CreateNamespace=true
+  destination:
+    name: in-cluster
+    namespace: {{ .Values.k8up.namespace }}
+  source:
+    chart: k8up
+    repoURL: https://charts.appuio.ch
+    targetRevision: v2.0.4
+    helm:
+      releaseName: k8up
+      values: |
+        installCRDs: true
+
+        prometheus:
+          enabled: true
+          servicemonitor:
+            enabled: true
+{{- end }}

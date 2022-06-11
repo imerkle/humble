@@ -62,3 +62,8 @@ systemUpgrade:
 
 kured:
   enabled: false
+
+#backup
+k8up:
+  enabled: true
+  namespace: k8up
