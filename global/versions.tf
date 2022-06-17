@@ -1,14 +1,14 @@
 terraform {
   required_version = "~> 1.2.0"
 
-  backend "remote" {
+/*   backend "remote" {
     hostname     = "app.terraform.io"
-    organization = "lmlabs"
+    organization = "binbase"
 
     workspaces {
       name = "humble-global"
     }
-  }
+  } */
 
   required_providers {
     cloudflare = {

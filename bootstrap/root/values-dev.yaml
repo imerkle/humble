@@ -1,7 +1,7 @@
 env: "dev"
 
 global:
-  enabled: false
+  enabled: true
   domain: "172-28-0-3.nip.io"
   repoURL: https://github.com/imerkle/humble.git
 

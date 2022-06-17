@@ -15,7 +15,6 @@ secrets.tf
 *.tfstate
 *.tfstate.*
 terraform.tfvars
-
 # Crash log files
 crash.log
 
@@ -37,6 +36,7 @@ override.tf.json
 .terraformrc
 terraform.rc
 
+global/kubeconfig.*.yaml
 metal/kubeconfig.*.yaml
 metal/kubeconfig.yaml
 
@@ -79,3 +79,4 @@ node_modules/
 .docz
 
 *.tgz
+global/.terraform.lock.hcl
