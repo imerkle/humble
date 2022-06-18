@@ -28,7 +28,7 @@ spec:
         config:
           tunnel: humble-tunnel
           ingress:
-          - hostname: "*.475962.xyz"
+          - hostname: "*.{{ .Values.global.domain }}"
             service: https://system-ingress-nginx-controller.ingress-nginx
             originRequest:
               noTLSVerify: true
