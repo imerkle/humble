@@ -4,5 +4,5 @@ provider "cloudflare" {
 }
 
 provider "kubernetes" {
-  config_path = "${path.root}/kubeconfig.dev.yaml"
+  config_path = "/home/slim/repos/humble/metal/kubeconfig.dev.yaml"
 }

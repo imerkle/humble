@@ -18,6 +18,7 @@ tools:
 dev:
 	make -C metal k3d env=dev
 	make -C bootstrap env=dev
+	make -C global env=dev
 
 global:
 	make -C global
