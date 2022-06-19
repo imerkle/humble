@@ -11,5 +11,5 @@ external_dns:
 
 certmanager:
   issuer:
-    enabled: true
+    enabled: false
     email: dsslimshaddy@gmail.com
