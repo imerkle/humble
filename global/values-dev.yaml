@@ -11,5 +11,5 @@ external_dns:
 
 certmanager:
   issuer:
-    enabled: false
-    email: locmai0201@gmail.com
+    enabled: true
+    email: dsslimshaddy@gmail.com
