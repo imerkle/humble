@@ -26,4 +26,4 @@ spec:
         provider: cloudflare
         cloudflare:
           secretName: cloudflare-api-token
-          email: "locmai0201@gmail.com"
+          email: "dsslimshaddy@gmail.com"
