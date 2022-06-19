@@ -30,7 +30,7 @@ spec:
           tunnel: humble-tunnel
           ingress:
           - hostname: "*.{{ .Values.global.domain }}"
-            service: http://system-ingress-nginx-controller.ingress-nginx.svc.cluster.local:80
+            service: https://system-ingress-nginx-controller.ingress-nginx
             originRequest:
               noTLSVerify: true
           - service: http_status:404

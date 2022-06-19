@@ -48,11 +48,13 @@ resource "cloudflare_api_token" "external_dns" {
     }
   }
 
+/*
   condition {
     request_ip {
       in = local.public_ips
     }
   }
+  */
 
   lifecycle {
     ignore_changes = [
@@ -84,12 +86,13 @@ resource "cloudflare_api_token" "cert_manager" {
       "com.cloudflare.api.account.zone.*" = "*"
     }
   }
-
+/*
   condition {
     request_ip {
       in = local.public_ips
     }
   }
+  */
 
   lifecycle {
     ignore_changes = [
