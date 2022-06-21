@@ -1,0 +1,31 @@
+{{- if .Values.minio.enabled }}
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: minio-pv
+  namespace: {{ .Values.minio.namespace }}
+spec:
+  storageClassName: manual
+  capacity:
+    storage: {{.Values.minio.size }}
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/homelab/minio"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: minio-pvc
+  namespace: apps
+spec:
+  storageClassName: manual
+  volumeName: minio-pv
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: {{.Values.minio.size }}
+---
+{{- end }}

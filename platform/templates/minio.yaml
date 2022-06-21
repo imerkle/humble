@@ -26,7 +26,6 @@ spec:
     helm:
       releaseName: minio
       values: |
-        global:
-          storageClass: "longhorn"
-        mode: distributed
+        persistence:
+          existingClaim: minio-pvc
 {{- end }}

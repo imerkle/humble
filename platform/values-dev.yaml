@@ -58,7 +58,7 @@ gitea:
 
 # Yuta Platform
 minio:
-  enabled: false
+  enabled: true
   namespace: platform
 
 trow:
