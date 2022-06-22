@@ -18,7 +18,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: minio-pvc
-  namespace: apps
+  namespace: {{ .Values.minio.namespace }}
 spec:
   storageClassName: manual
   volumeName: minio-pv
