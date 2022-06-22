@@ -28,4 +28,6 @@ spec:
       values: |
         persistence:
           existingClaim: minio-pvc
+        volumePermissions: 
+          enabled: true
 {{- end }}
