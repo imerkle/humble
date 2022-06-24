@@ -1,0 +1,28 @@
+{{- if .Values.zpostgres.enabled }}
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: {{ .Values.argocd.project }}-zpostgres
+  namespace: {{ .Values.argocd.namespace }}
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: {{ .Values.argocd.project }}
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+    syncOptions:
+      - CreateNamespace=true
+  destination:
+    name: in-cluster
+    namespace: {{ .Values.zpostgres.namespace }}
+  source:
+    chart: zalando-postgres-cluster
+    repoURL: https://k8s-at-home.com/charts/
+    targetRevision: 0.20.0
+    helm:
+      releaseName: zpostgres
+{{- end }}
