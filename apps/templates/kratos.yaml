@@ -1,0 +1,36 @@
+{{- if .Values.kratos.enabled }}
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: {{ .Values.argocd.project }}-kratos
+  namespace: {{ .Values.argocd.namespace }}
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: {{ .Values.argocd.project }}
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+    syncOptions:
+      - CreateNamespace=true
+  destination:
+    name: in-cluster
+    namespace: {{ .Values.argocd.project }}
+  source:
+    chart: kratos
+    repoURL: https://k8s.ory.sh/helm/charts
+    targetRevision: 0.23.3
+    helm:
+      releaseName: kratos
+      values: |
+        kratos:
+        config:
+            dsn: postgres://postgres:postgres@default.acid-test-0:5432/db
+            secrets:
+            default:
+                - dolore occaecat nostrud Ut
+                - sit et commodoaute ut voluptate consectetur Duis
+{{- end }}
