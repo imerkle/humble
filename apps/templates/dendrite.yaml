@@ -56,6 +56,8 @@ spec:
             image: natsio/prometheus-nats-exporter:0.9.1
             serviceMonitor:
               enabled: true
+        database:
+          connection_string: "postgresql://default.acid-test-0:5432"
         postgresql:
           enabled: true
           global:
