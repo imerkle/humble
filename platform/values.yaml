@@ -69,3 +69,8 @@ trow:
 mimir:
   enabled: false
   namespace: platform
+
+# zalando-postgres
+zpostgres:
+  enabled: true
+  namespace: platform
