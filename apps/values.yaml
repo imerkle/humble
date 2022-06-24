@@ -55,3 +55,8 @@ bazarr:
   enabled: true
 qbittorrent:
   enabled: true
+
+# zalando-postgres
+zpostgres:
+  enabled: true
+  namespace: platform
