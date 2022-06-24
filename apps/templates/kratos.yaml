@@ -27,10 +27,10 @@ spec:
       releaseName: kratos
       values: |
         kratos:
-        config:
-            dsn: postgres://postgres:postgres@default.acid-test-0:5432/db
-            secrets:
-            default:
-                - dolore occaecat nostrud Ut
-                - sit et commodoaute ut voluptate consectetur Duis
+            config:
+                dsn: postgres://postgres:postgres@default.acid-test-0:5432/db
+                secrets:
+                default:
+                    - dolore occaecat nostrud Ut
+                    - sit et commodoaute ut voluptate consectetur Duis
 {{- end }}
