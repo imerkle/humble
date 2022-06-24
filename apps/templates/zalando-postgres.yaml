@@ -5,7 +5,7 @@ metadata:
   name: {{ .Values.argocd.project }}-zpostgres
   namespace: {{ .Values.argocd.namespace }}
   annotations:
-    argocd.argoproj.io/sync-wave: "1"
+    argocd.argoproj.io/sync-wave: "2"
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
@@ -18,7 +18,7 @@ spec:
       - CreateNamespace=true
   destination:
     name: in-cluster
-    namespace: {{ .Values.zpostgres.namespace }}
+    namespace: {{ .Values.argocd.project }}
   source:
     chart: zalando-postgres-cluster
     repoURL: https://k8s-at-home.com/charts/
