@@ -30,6 +30,33 @@ spec:
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
+  name: {{ .Values.argocd.project }}-zalando-postgres-operator-ui
+  namespace: {{ .Values.argocd.namespace }}
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: {{ .Values.argocd.project }}
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+    syncOptions:
+      - CreateNamespace=true
+  destination:
+    name: in-cluster
+    namespace: {{ .Values.argocd.project }}
+  source:
+    chart: postgres-operator-ui
+    repoURL: https://charts.commonground.nl/
+    targetRevision: 1.7.1
+    helm:
+      releaseName: zalando-postgres-operator-ui
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
   name: {{ .Values.argocd.project }}-zalando-postgres-cluster
   namespace: {{ .Values.argocd.namespace }}
   annotations:
