@@ -59,4 +59,3 @@ qbittorrent:
 # zalando-postgres
 zpostgres:
   enabled: true
-  namespace: platform
