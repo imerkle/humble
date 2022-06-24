@@ -43,7 +43,7 @@ ingress_nginx:
   enabled: true
 
 certmanager:
-  enabled: false
+  enabled: true
   namespace: cert-manager
 
 istio:
