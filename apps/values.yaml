@@ -61,3 +61,5 @@ zpostgres:
   enabled: true
 pgadmin:
   enabled: true
+kratos:
+  enabled: true
