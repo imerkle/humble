@@ -1,0 +1,28 @@
+{{- if .Values.pgadmin.enabled }}
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: {{ .Values.argocd.project }}-pgadmin
+  namespace: {{ .Values.argocd.namespace }}
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: {{ .Values.argocd.project }}
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+    syncOptions:
+      - CreateNamespace=true
+  destination:
+    name: in-cluster
+    namespace: {{ .Values.argocd.project }}
+  source:
+    chart: pgadmin
+    repoURL: https://charts.truecharts.org/
+    targetRevision: 7.0.7
+    helm:
+      releaseName: pgadmin    
+{{- end }}
