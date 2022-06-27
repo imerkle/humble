@@ -17,4 +17,5 @@ options:
 subnet: 172.28.0.0/16
 volumes: # repeatable flags are represented as YAML lists
   - volume: /home/slim/homelab:/homelab
+  - volume: /media/slim/_4tb1/homelabnfs:/homelabnfs
   - volume: /home/slim/homelab/dstorage:/var/lib/rancher/k3s/storage/
