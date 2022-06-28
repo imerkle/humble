@@ -28,6 +28,9 @@ spec:
       values: |
         securityContext:
           privileged: true
+          runAsUser: 1001
+          runAsGroup: 1001
+          fsGroup: 1001          
         persistence:
           config:
             enabled: true        
