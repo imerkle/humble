@@ -29,6 +29,7 @@ spec:
         persistence:
           config:
             enabled: true
+            existingClaim: sonarr-config-pvc            
           media:
             enabled: true
             existingClaim: sonarr-media-pvc

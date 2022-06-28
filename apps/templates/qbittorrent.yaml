@@ -29,6 +29,7 @@ spec:
         persistence:
           config:
             enabled: true        
+            existingClaim: qbittorrent-config-pvc
           media:
             enabled: true
             existingClaim: qbittorrent-media-pvc

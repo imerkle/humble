@@ -29,6 +29,7 @@ spec:
         persistence:
           config:
             enabled: true        
+            existingClaim: radarr-config-pvc
           media:
             enabled: true
             existingClaim: radarr-media-pvc

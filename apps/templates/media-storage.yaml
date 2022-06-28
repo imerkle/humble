@@ -33,6 +33,34 @@ spec:
 apiVersion: v1
 kind: PersistentVolume
 metadata:
+  name: radarr-config-pv
+  namespace: apps
+spec:
+  storageClassName: manual
+  capacity:
+    storage: {{.Values.mediastorage.size }}
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/homelabnfs/config/radarr"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: radarr-config-pvc
+  namespace: apps
+spec:
+  storageClassName: manual
+  volumeName: radarr-config-pv
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: {{.Values.mediastorage.size }}
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
   name: radarr-media-pv
   namespace: apps
 spec:
@@ -59,6 +87,34 @@ spec:
       storage: {{.Values.mediastorage.size }}
 {{- end }}
 {{- if .Values.sonarr.enabled }}
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: sonarr-config-pv
+  namespace: apps
+spec:
+  storageClassName: manual
+  capacity:
+    storage: {{.Values.mediastorage.size }}
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/homelabnfs/config/sonarr"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: sonarr-config-pvc
+  namespace: apps
+spec:
+  storageClassName: manual
+  volumeName: sonarr-config-pv
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: {{.Values.mediastorage.size }}
 ---
 apiVersion: v1
 kind: PersistentVolume
@@ -93,6 +149,34 @@ spec:
 apiVersion: v1
 kind: PersistentVolume
 metadata:
+  name: bazarr-config-pv
+  namespace: apps
+spec:
+  storageClassName: manual
+  capacity:
+    storage: {{.Values.mediastorage.size }}
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/homelabnfs/config/bazarr"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: bazarr-config-pvc
+  namespace: apps
+spec:
+  storageClassName: manual
+  volumeName: bazarr-config-pv
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: {{.Values.mediastorage.size }}
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
   name: bazarr-media-pv
   namespace: apps
 spec:
@@ -117,9 +201,36 @@ spec:
   resources:
     requests:
       storage: {{.Values.mediastorage.size }}
----
 {{- end }}
 {{- if .Values.qbittorrent.enabled }}
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: qbittorrent-config-pv
+  namespace: apps
+spec:
+  storageClassName: manual
+  capacity:
+    storage: {{.Values.mediastorage.size }}
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/homelabnfs/config/qbittorrent"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: qbittorrent-config-pvc
+  namespace: apps
+spec:
+  storageClassName: manual
+  volumeName: qbittorrent-config-pv
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: {{.Values.mediastorage.size }}
 ---
 apiVersion: v1
 kind: PersistentVolume
@@ -177,4 +288,34 @@ spec:
     requests:
       storage: {{.Values.mediastorage.size }}
 ---
+{{- end }}
+{{- if .Values.prowlarr.enabled }}
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: prowlarr-config-pv
+  namespace: apps
+spec:
+  storageClassName: manual
+  capacity:
+    storage: {{.Values.mediastorage.size }}
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/homelabnfs/config/prowlarr"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: prowlarr-config-pvc
+  namespace: apps
+spec:
+  storageClassName: manual
+  volumeName: prowlarr-config-pv
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: {{.Values.mediastorage.size }}
 {{- end }}

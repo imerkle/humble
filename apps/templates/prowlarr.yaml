@@ -29,6 +29,7 @@ spec:
         persistence:
           config:
             enabled: true
+            existingClaim: prowlarr-config-pvc            
         ingress:
           main:
             enabled: true
