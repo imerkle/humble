@@ -33,6 +33,7 @@ spec:
         persistence:
           config:
             enabled: true
+            existingClaim: bazarr-config-pvc
           media:
             enabled: true
             existingClaim: bazarr-media-pvc
