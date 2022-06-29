@@ -26,6 +26,10 @@ spec:
     helm:
       releaseName: bazarr
       values: |
+        podSecurityContext:
+          runAsUser: {{ .Values.global.uid }}
+          runAsGroup: {{ .Values.global.uid }}
+          fsGroup: {{ .Values.global.uid }}      
         persistence:
           config:
             enabled: true

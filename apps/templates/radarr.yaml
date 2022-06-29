@@ -27,9 +27,9 @@ spec:
       releaseName: radarr
       values: |
         podSecurityContext:
-          runAsUser: 1000
-          runAsGroup: 1000
-          fsGroup: 1000
+          runAsUser: {{ .Values.global.uid }}
+          runAsGroup: {{ .Values.global.uid }}
+          fsGroup: {{ .Values.global.uid }}
         persistence:
           config:
             enabled: true        
