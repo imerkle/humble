@@ -47,6 +47,10 @@ spec:
               external-dns.alpha.kubernetes.io/cloudflare-proxied: "true"
               nginx.ingress.kubernetes.io/proxy-body-size: 32m
             hosts:
+              - host: &host radarr.475962.xyz
+                paths:
+                  - path: /
+                    pathType: Prefix
               - host: &host radarr.{{ .Values.global.domain }}
                 paths:
                   - path: /
