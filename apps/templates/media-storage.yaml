@@ -300,7 +300,7 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: "/homelabnfs/downloads"
+    path: "/homelabnfs/media/downloads"
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
