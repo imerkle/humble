@@ -64,3 +64,5 @@ pgadmin:
   enabled: true
 kratos:
   enabled: true
+paperless:
+  enabled: true
