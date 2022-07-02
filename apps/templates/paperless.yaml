@@ -26,6 +26,8 @@ spec:
     helm:
       releaseName: paperless
       values: |
+        env:
+          PAPERLESS_REDIS: "platform.redis-master"
         ingress:
           main:
             enabled: true
