@@ -27,7 +27,7 @@ spec:
       releaseName: paperless
       values: |
         env:
-          PAPERLESS_REDIS: "redis://platform.redis-master"
+          PAPERLESS_REDIS: "redis://redis-master.platform"
         ingress:
           main:
             enabled: true
