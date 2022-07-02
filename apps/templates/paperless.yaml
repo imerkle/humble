@@ -27,7 +27,16 @@ spec:
       releaseName: paperless
       values: |
         env:
-          PAPERLESS_REDIS: "redis://redis-headless.platform:6379"
+          PAPERLESS_REDIS: redis://paperless-redis-headless:6379
+        redis:
+          enabled: true
+          architecture: standalone
+          auth:
+            enabled: false
+          master:
+            persistence:
+              enabled: false
+          fullnameOverride:  paperless-redis         
         ingress:
           main:
             enabled: true
