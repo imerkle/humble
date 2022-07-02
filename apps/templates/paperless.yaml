@@ -26,8 +26,6 @@ spec:
     helm:
       releaseName: paperless
       values: |
-        redis:
-          enabled: true
         ingress:
           main:
             enabled: true

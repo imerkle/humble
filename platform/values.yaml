@@ -69,3 +69,8 @@ trow:
 mimir:
   enabled: false
   namespace: platform
+
+# Redis
+redis:
+  enabled: true
+  namespace: platform
