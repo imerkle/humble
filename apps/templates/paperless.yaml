@@ -28,6 +28,8 @@ spec:
       values: |
         env:
           PAPERLESS_REDIS: redis://paperless-redis-headless:6379
+          PAPERLESS_ADMIN_USER: admin
+          PAPERLESS_ADMIN_PASSWORD: admin
         redis:
           enabled: true
           architecture: standalone
